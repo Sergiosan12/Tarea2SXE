@@ -74,3 +74,7 @@ Con esto aparte de crearlo, lo empieza y entra en ese contenedor. Por lo tanto p
 ping -c 2 172.17.0.2 
 ```
 Usando la IP de dam_alp1 dentro del contenedor dam_alp2 se puede hacer ping entre contenedores
+
+## 6.Sal del terminal, ¿que ocurrió con el contenedor?
+
+Al salir de la terminal y luego volver a abrirla ambos contenedores siguen funcionando.
