@@ -63,3 +63,14 @@ apk add iputils
 ```bash
 ping google.com
 ```
+## 5.Crea un contenedor con el nombre 'dam_alp2'. ¿Puedes hacer ping entre los contenedores?
+
+Para crear el contenedor nuevo utilizo:
+```bash
+docker run -it --name dam_alp2 alpine /bin/sh
+```
+Con esto aparte de crearlo, lo empieza y entra en ese contenedor. Por lo tanto para hacer ping al otro lo único que tenemos que hacer es:
+```bash
+ping -c 2 172.17.0.2 
+```
+Usando la IP de dam_alp1 dentro del contenedor dam_alp2 se puede hacer ping entre contenedores
