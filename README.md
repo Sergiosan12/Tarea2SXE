@@ -4,35 +4,62 @@
 
 Para descargar la imagen de alpine sin descargarla utilicé:
 ```bash
-sudo docker pull alpine
+docker pull alpine
 ```
 y para comprobar que estaba en mi equipo: 
 ```bash
-sudo docker images
+docker images
 ```
 ## 2.Crea un contenedor sin ponerle nombre. ¿está arrancado? Obtén el nombre
 
 Para crear un contenedor sin especificar nombre se uliliza:
 ```bash
-sudo docker run alpine
+docker run alpine
 ```
 y para comprobar que está arrancado y además su nombre se ejecuta: 
 ```bash
-sudo docker ps -a
+docker ps -a
 ```
 Esto lista todos los contenedores, su estado y su nombre entre otras cosas.
 En mi caso el contenedor que acabo de crear de alpine está "exited" y su nombre es blissful_brattain.
 
-## 3. Crea un contenedor con el nombre 'dam_alp1'. ¿Como puedes acceder a él?
+## 3.Crea un contenedor con el nombre 'dam_alp1'. ¿Como puedes acceder a él?
 
 Para crear un contenedor con el nombre especificado por mi se utiliza:
-```bash
-sudo docker run --name dam_alp1 alpine sleep 1000
+```bashnewgrp docker
+docker run --name dam_alp1 alpine sleep 1000
 ```
 El comando sleep 1000 lo utilizo para mantener el contenedor activo y poder acceder a él.
 
 Para acceder a este contenedor recién creado se utiliza:
 ```bash
-sudo docker exec -it dam_alp1 /bin/sh
+docker exec -it dam_alp1 /bin/sh
 ```
 Con esto accedo a la terminal de ese contenedor.
+
+## 4.Comprueba que ip tiene y si puedes hacer un ping a google.com
+
+Para comprobar primero la ID o el nombre del contenedor recién creado se usa:
+```bash
+docker ps -l
+```
+Después se utiliza el nombre o la ID para comprobar la IP de la siguiente manera:
+```bash
+docker inspect dam_alp1 | grep IPA
+```
+En lugar del nombre se puede usar la ID.
+En mi caso la IP del contenedor es 172.17.0.2.
+
+Para hacer un ping a google.com:
+1. Se accede al contenedor con:
+```bash
+docker exec -it dam_alp1 sh
+```
+2. Se instala la apk para poder hacer el ping con:
+```bash
+apk add iputils
+```
+3. Por último se hace el ping a google.com con:
+```bash
+ping google.com
+```
