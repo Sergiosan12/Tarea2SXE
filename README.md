@@ -78,3 +78,21 @@ Usando la IP de dam_alp1 dentro del contenedor dam_alp2 se puede hacer ping entr
 ## 6.Sal del terminal, ¿que ocurrió con el contenedor?
 
 Al salir de la terminal y luego volver a abrirla ambos contenedores siguen funcionando.
+
+## 7.¿Cuanta memoria en el disco duro ocupaste?
+
+Para ver la memoria en disco duro que se ocupó se utiliza el comando:
+```bash
+docker system df
+```
+El resultado que da es este:
+
+|TYPE        |TOTAL        |     ACTIVE 1 |  SIZE    |    RECLAIMABLE|
+| --------- | ----------- | ------------- | --------- | ------------ |
+|Images     |       4     |    2          |  277.6MB  | 269.8MB (97%) |
+|Containers  |      5      |   0          | 7.096MB  | 7.096MB (100%) |
+|Local Volumes  |   0       |  0          |   0B     |   0B           |
+|Build Cache   |    0        | 0           |  0B     |   0B           |
+
+Aquí podemos ver cuanto ocupan nuestras imágenes y contenedores en el disco duro.
+
