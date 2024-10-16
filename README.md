@@ -96,3 +96,15 @@ El resultado que da es este:
 
 Aquí podemos ver cuanto ocupan nuestras imágenes y contenedores en el disco duro.
 
+## 8. ¿Cuanta RAM ocupan los contenedores? ¿Hay algún comando docker para saber esto?.
+
+Con el comando
+```bash
+docker stats
+```
+Se puede ver en tiempo real el uso de memoria, CPU y red para cada contenedor que esté activo.
+Lo que sale por terminal al poner el comando es algo como esto:
+
+|CONTAINER ID |  NAME    |   CPU % |   MEM USAGE / LIMIT |  MEM %   |   NET I/O    |   BLOCK I/O  |   PIDS |
+|------------ | -------- | ------- | -------------------- | -------- | ----------- | ------------ | ----- |
+|e1ced643f032  |  dam_alp2  | 0.00%   |  504KiB / 7.883GiB |  0.01%  |   7.66kB / 0B  | 1.32MB / 0B  | 1   |
